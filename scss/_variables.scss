@@ -1,0 +1,22 @@
+//colors
+$primary-color: hsl(228, 56%, 26%);
+$secondary-color: hsl(229, 57%, 11%);
+$accent-color: hsl(243, 100%, 93%);
+$progress-bg: hsl(229, 57%, 18%);
+$progress-fill: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+$white: hsl(0, 0%, 100%);
+$grayish-blue: hsl(229, 7%, 55%);
+
+
+//typography
+$fs-body: 0.875rem;
+$fs-sm: 0.75rem;
+$fs-bg: 2.5rem;
+$fw-bold: 700;
+$fw-semi-bold: 600;
+$fw-regular: 500;
+$font-family: "Raleway", sans-serif;
+
+//background
+$bg-mobile: url('../images/bg-mobile.png') center/cover no-repeat;
+$bg-desktop: $secondary-color url('../images/bg-desktop.png') bottom/contain no-repeat;

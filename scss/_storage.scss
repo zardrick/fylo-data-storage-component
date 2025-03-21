@@ -1,0 +1,161 @@
+@use 'variables' as *;
+@use 'global' as *;
+
+.storage {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    max-width: 20.375rem;
+
+    &__header {
+        display: grid;
+        gap: 2rem;
+        padding: 2.5rem;
+        border-radius: 10px;
+        border-top-right-radius: 100px;
+        background-color: $primary-color;
+    }
+
+    &__icons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__icon {
+        display: grid;
+        place-items: center;
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: $secondary-color;
+        transition: transform 0.2s ease-in-out;
+        
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px rgba($accent-color, 0.2);
+        }
+    }
+
+    &__usage {
+        padding: 2rem;
+        text-align: center;
+        border-radius: 10px;
+        background-color: $primary-color;
+        max-height: 10rem;
+    }
+
+    &__text {
+        margin-bottom: 1rem;
+    }
+
+    &__bar {
+        padding: 3px;
+        height: 20px;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        background-color: $progress-bg;
+    }
+
+    &__bar-fill {
+        width: 81.5%;
+        height: 100%;
+        border-radius: 10px;
+        position: relative;
+        background: $progress-fill;
+        animation: fillBar 1.3s ease-out forwards; // Animation added
+
+        &::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: $white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            right: 2px;
+            transform: translate(0%, -50%);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    @keyframes fillBar {
+        from {
+            width: 0%;
+        }
+        to {
+            width: 81.5%;
+        }
+    }
+
+    &__limits {
+        display: flex;
+        justify-content: space-between;
+        margin-block: 0.5rem 1rem;
+        font-size: $fs-sm;
+        font-weight: $fw-semi-bold;
+    }
+    
+    &__remaining {
+        padding: 0.75rem 1.5rem;
+        max-width: 11.25rem;
+        margin: auto;
+        border-radius: 10px;
+        font-weight: bold;
+        color: $grayish-blue;
+        background-color: $white;
+
+        &-value {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        span {
+            font-size: 2.5rem;
+            color: $secondary-color;
+        }
+    }
+
+    @include desktop {
+        grid-template-columns: 38% auto; 
+        gap: 1.875rem;
+        align-items: center;
+        max-width: 57.5rem;
+
+        &__header {
+            width: 100%;
+        }
+
+        &__usage {
+            width: 100%;
+            align-self: end;
+            padding: 2.5rem;
+            max-height: 9.625rem;
+        }
+
+        &__text {
+            text-align: left;
+        }
+
+        &__remaining {
+            position: absolute;
+            top: 0;
+            right: 2.5rem;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid $white;
+            }
+        }
+    }
+}

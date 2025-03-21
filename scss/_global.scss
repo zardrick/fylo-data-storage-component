@@ -1,0 +1,34 @@
+@use 'variables' as *;
+
+@mixin desktop {
+    @media (min-width: 48rem) {
+        @content;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    height: 100vh;
+    font-size: $fs-body;
+    font-family: $font-family;
+    color: $accent-color;
+    background: $bg-mobile;
+
+    @include desktop {
+        background: $bg-desktop;
+    }
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
